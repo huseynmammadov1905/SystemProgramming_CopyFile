@@ -1,0 +1,35 @@
+﻿<Window x:Class="Copy_File.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Copy_File.Views"
+        mc:Ignorable="d"
+        Title="MainView" Height="450" Width="800">
+    <Grid>
+        <StackPanel Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="10">From</Label>
+                <TextBlock Name="tblck_1" Width="400" Height="25" Text="{Binding SourceFilePath}" Background="LightGray" Margin="20,10,10,10"></TextBlock>
+                <Button Name="From_btn" Height="30" Width="100" Margin="10" Background="CornflowerBlue" Command="{Binding SourceCommand}">File</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="25,10,10,10">To</Label>
+                <TextBlock Name="tblck_2" Width="400" Height="25" Text="{Binding DestinationFilePath}" Background="LightGray" Margin="20,10,10,10"></TextBlock>
+                <Button Name="To_btn" Height="30" Width="100" Margin="10" Background="CornflowerBlue"  Command="{Binding DestinationCommand}">File</Button>
+            </StackPanel>
+            <StackPanel>
+
+                <ProgressBar  Margin="10" Width="700" Height="30" Value="{Binding ProgressBarValue}"  Maximum="{Binding ProgressBarMax}"></ProgressBar>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+
+                <Button Height="30" Width="100" Margin="10" Background="CornflowerBlue" Command="{Binding SuspendCommand}">Suspend</Button>
+                <Button Height="30" Width="100" Margin="10" Background="CornflowerBlue" Command="{Binding ResumeCommand}">Resume</Button>
+                <Button Height="30" Width="100" Margin="10" Background="CornflowerBlue" Command="{Binding AbortCommand}">Abort</Button>
+                <Button Name="Copy_btn" Height="40" Width="120" Margin="10" Background="SlateBlue" FontFamily="Elephant" FontSize="20" Command="{Binding CopyCommand}" >Copy</Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
